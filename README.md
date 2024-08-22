@@ -9,12 +9,13 @@
 1. react
 2. react-dom
 3. react-scripts
+5. react-router-dom
+4. @testing-library/ (jest-dom, react, user-event)
 
 - Что там по разработке...
 1. typescript
 2. web-vitals
 3. @types/ (react, react-dom, react-scripts & jest)
-4. @testing-library/ (jest-dom, react, user-event)
 
 ### Хотите скачать проект ?
 
