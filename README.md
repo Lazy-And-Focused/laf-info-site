@@ -20,7 +20,11 @@
 
 1. Тогда запускайте консоль/терминал/powershell
 2. Откройте папку, куда хотите загрузить проект
-3. Впишите `git clone https://github.com/FOCKUSTY/laf-info-site.git`
+3. Впишите: `git clone https://github.com/FOCKUSTY/laf-info-site.git`
 4. После того, как всё установится: `npm install`
 5. Готово! Запускайте проект: `npm run start`
 6. Переходите по адресу у Вас в терминале
+
+### Как забилдить проект ?
+
+- Просто впишите: `npm run deploy`

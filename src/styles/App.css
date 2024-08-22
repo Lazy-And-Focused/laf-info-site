@@ -1,38 +1,132 @@
-.App {
-    text-align: center;
-}
+header {
+	display: flex;
+	position: relative;
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
+	height: 100px;
+	width: 100%;
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+
+	gap: 20px;
+}
+
+.link {
+	color: white;
+
+	text-decoration: none;
+}
+
+main {
+	position: relative;
+	display: flex;
+
+	justify-content: center;
+    align-items: center;
+	flex-direction: column;
+
+	width: 100%;
+}
+
+.text {
+    text-align: center;
+    text-wrap: pretty;
+
+	width: 50%;
+	margin: 20px 0;
+}
+
+.container {
+	background-color: rgb(53, 53, 53);
+	width: min-content;
+
+	display: flex;
+
+	align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ffffff85;
+	border-radius: 20px;
+	box-shadow: 0 0 5em 0px rgb(118 118 118 / 35%);
+
+	transition: 1s;
+
+	padding: 20px;
+	margin: 20px 0;
+	gap: 20px;
+}
+
+.container:hover {
+	box-shadow: 0 0 5em 0px rgb(118 118 118 / 70%);
+}
+
+.container:hover .help {
+	bottom: -10px;
+}
+
+.title {
+    transition: 1s;
+}
+
+.container:hover .title {
+    opacity: 0;
+}
+
+.help {
+	position: absolute;
+	z-index: -1;
+	bottom: 40px;
+	transition: 2s;
+}
+
+.avatar {
+	cursor: pointer;
+
+	height: 100px;
+	width: 100px;
+
+	filter: brightness(0.1);
+	transform: rotate3d(0);
+
+	transition: 0.5s;
+}
+
+.avatar > img {
+	border-radius: 10%;
+
+	height: 100%;
+	width: 100%;
+}
+
+.avatar > span {
+    position: absolute;
+    display: block;
+    
+    text-decoration: none;
+    text-align: center;
+
+    top: 10px;
+    z-index: -1;
+    transition: 1s;
+
     color: white;
 }
 
-.App-link {
-    color: #61dafb;
+.avatar:hover > span {
+    top: -50px;
+    visibility: visible;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.avatar:has(+ .avatar:hover) {
+	transform: rotate3d(0, 1, 0, 45deg);
+	filter: brightness(0.5);
+}
+
+.avatar:hover + * {
+	transform: rotate3d(0, 1, 0, -45deg);
+	filter: brightness(0.5);
+}
+
+.avatar:hover {
+	filter: brightness(1);
 }
