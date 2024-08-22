@@ -7,7 +7,7 @@ import Info from './pages/more/Info';
 import Projects from './pages/more/Projects';
 
 const Main = () => (
-	<BrowserRouter>
+	<BrowserRouter basename='/'>
 		<Routes>
 			<Route path='/' Component={Home}></Route>
 			<Route path='/news' Component={News}></Route>
