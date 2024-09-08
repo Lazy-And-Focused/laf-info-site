@@ -22,7 +22,7 @@ const App = () => {
 					<legend className='title noselect'>Команда</legend>
 	
 					<span className="help noselect">
-						Нажимите, чтобы перейти в Github
+						Нажмите, чтобы перейти в Github
 					</span>
 	
 					<a href="https://github.com/lottophello" className="avatar" target="_blank" >
