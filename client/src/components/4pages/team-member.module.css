@@ -1,0 +1,51 @@
+.avatar {
+	cursor: pointer;
+
+	height: 100px;
+	width: 100px;
+
+	filter: brightness(0.1);
+	transform: rotate3d(0);
+
+	transition: 0.5s;
+}
+
+.avatar > img {
+	border-radius: 10%;
+
+	height: 100%;
+	width: 100%;
+}
+
+.avatar > span {
+    position: absolute;
+    display: block;
+    
+    text-decoration: none;
+    text-align: center;
+
+    top: 10px;
+    z-index: -1;
+    transition: 1s;
+
+    color: white;
+}
+
+.avatar:hover > span {
+    top: -50px;
+    visibility: visible;
+}
+
+.avatar:has(+ .avatar:hover) {
+	transform: rotate3d(0, 1, 0, 45deg);
+	filter: brightness(0.5);
+}
+
+.avatar:hover + * {
+	transform: rotate3d(0, 1, 0, -45deg);
+	filter: brightness(0.5);
+}
+
+.avatar:hover {
+	filter: brightness(1);
+}
