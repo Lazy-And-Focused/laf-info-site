@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={style.main}>
       {routes[0].children?.map((r) => (
-        <NavLink key={r.path} to={r.path} className="link">
+        <NavLink key={r.path} to={r.path} className={style.link}>
           {r.name}
         </NavLink>
       ))}
