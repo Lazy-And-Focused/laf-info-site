@@ -1,34 +1,35 @@
 // ЭТОЙ СТРАНИЦЕ ТРЕБУЕТСЯ РЕФАКТОРИНГ
 
 import TeamMember from "../components/4pages/TeamMember";
+import Browser from "../components/Browser";
+import team from "../config/team";
 import style from "./home.module.css";
-
-// При возможно перенесите в отдельный файл
-/**
- * Массив с именами пользователей GitHub, которые состоят в команде LAF.
- */
-const team = ["aculaOne", "FOCKUSTY", "lottophello"];
 
 const Home = () => {
   return (
-    <div className="App">
-      <main>
-        <p className={style.text}>
-          Здесь будет очень большое описание команды LAF. Тут будет написано не
-          много, только самое основное. И научитесь читать, пожалуйста
+    <main className={style.main}>
+      <p className={style.lore}>
+        Команда молодых, очень ленивых, но увлеченных работой энтузиастов
+        движется к вершинам этого мира.
+      </p>
+
+      <Browser
+        title="LAF'ники"
+        tabs={team.map((t) => ({
+          name: t.name,
+          favicon: `https://github.com/${t.name}.png?size=14`,
+          element: <TeamMember member={t} />,
+        }))}
+      >
+        <p
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Пожалуйста, выберите одного из участников в верхнем списке.
         </p>
-
-        <fieldset className={style.container + " noselect"}>
-          <legend className={style.title + " noselect"}>Команда</legend>
-
-          <span className={style.help + " noselect"}>Нажмите, чтобы перейти в Github</span>
-
-          {team.map((m) => (
-            <TeamMember key={m} member={m} />
-          ))}
-        </fieldset>
-      </main>
-    </div>
+      </Browser>
+    </main>
   );
 };
 export default Home;

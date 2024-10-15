@@ -1,71 +1,11 @@
-.text {
+.main {
+  width: 75%;
+}
+
+.lore {
   text-align: center;
   text-wrap: pretty;
 
-  width: 50%;
+  width: 80%;
   margin: 20px 0;
-}
-
-.container {
-  background-color: rgb(53, 53, 53);
-  width: min-content;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #ffffff85;
-  border-radius: 20px;
-  box-shadow: 0 0 5em 0px rgb(118 118 118 / 35%);
-
-  transition: 1s;
-
-  padding: 20px;
-  margin: 20px 0;
-  gap: 20px;
-}
-
-.container:hover {
-  box-shadow: 0 0 5em 0px rgb(118 118 118 / 70%);
-}
-
-.container:hover .help {
-  bottom: -10px;
-}
-
-.title {
-  width: 100px;
-  text-align: center;
-
-  padding-inline-start: 10px;
-  padding-inline-end: 10px;
-
-  transition: all 1s;
-}
-
-.container:hover .title {
-  padding-inline-start: 0;
-  padding-inline-end: 0;
-  animation: title 2s alternate both;
-  opacity: 0;
-}
-
-.help {
-  position: absolute;
-  z-index: -1;
-  bottom: 40px;
-  transition: 2s;
-}
-
-@keyframes title {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    filter: blur(5px) opacity(0);
-  }
-  100% {
-    width: 0;
-  }
 }

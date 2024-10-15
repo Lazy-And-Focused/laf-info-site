@@ -6,12 +6,12 @@ import Information from "../pages/Information";
 import News from "../pages/News";
 import Projects from "../pages/Projects";
 
-interface ConfigRoute {
+type ConfigRoute = {
   name?: string;
   path: string;
   element: React.ReactNode;
   children?: ConfigRoute[];
-}
+};
 
 /**
  * Все пути к страницам приложения (сайта)

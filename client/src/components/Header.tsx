@@ -2,6 +2,9 @@ import { NavLink } from "react-router-dom";
 import routes from "../config/routes";
 import style from "./header.module.css";
 
+/**
+ * Шапка сайта
+ */
 const Header = () => {
   return (
     <header className={style.main}>
