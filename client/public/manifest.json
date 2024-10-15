@@ -1,25 +1,29 @@
 {
-    "short_name": "LAF site",
-    "name": "Simple LAF site",
-    "icons": [
-        {
-            "src": "favicon.ico",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
-        },
-        {
-            "src": "logo.png",
-            "type": "image/png",
-            "sizes": "192x192"
-        },
-        {
-            "src": "logo.png",
-            "type": "image/png",
-            "sizes": "512x512"
-        }
-    ],
-    "start_url": ".",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+  "short_name": "Сайт LAF",
+  "name": "Сайт разработчиков LAF",
+  "lang": "ru",
+  "dir": "ltr",
+  "description": "Главный сайт команды разработчиков LAF, где можно узреть их творения!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#080808",
+  "background_color": "#080808",
+  "categories": ["develop", "web", "laf"]
 }
