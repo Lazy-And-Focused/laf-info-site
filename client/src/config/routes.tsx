@@ -5,13 +5,7 @@ import Home from "../pages/Home";
 import Information from "../pages/Information";
 import News from "../pages/News";
 import Projects from "../pages/Projects";
-
-type ConfigRoute = {
-  name?: string;
-  path: string;
-  element: React.ReactNode;
-  children?: ConfigRoute[];
-};
+import { ConfigRoute } from "../types";
 
 /**
  * Все пути к страницам приложения (сайта)

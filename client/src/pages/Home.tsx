@@ -14,10 +14,12 @@ const Home = () => {
       </p>
 
       <Browser
-        title="LAF'ники"
+        title="LAF-ники"
         tabs={team.map((t) => ({
           name: t.name,
-          favicon: `https://github.com/${t.name}.png?size=14`,
+          favicon: t.meta?.includes("no-gh")
+            ? "logo.png"
+            : `https://github.com/${t.name}.png?size=14`,
           element: <TeamMember member={t} />,
         }))}
       >
@@ -28,6 +30,14 @@ const Home = () => {
         >
           Пожалуйста, выберите одного из участников в верхнем списке.
         </p>
+        <TeamMember
+          member={{
+            name: "LAF",
+            description: "Пользователь не выбран и теперь тут пустышка",
+            role: "Администратор",
+            meta: ["no-gh"],
+          }}
+        />
       </Browser>
     </main>
   );
