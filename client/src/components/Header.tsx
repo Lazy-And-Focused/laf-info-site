@@ -1,15 +1,21 @@
 import { NavLink } from "react-router-dom";
 import routes from "../config/routes";
 import style from "./header.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Шапка сайта
  */
 const Header = () => {
-  const ww = document.documentElement.clientWidth;
+  const [ww, setWindowWidth] = useState(window.innerWidth);
+  const handleResize = () => setWindowWidth(window.innerWidth);
 
-  if (ww > 500) {
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (ww > 690) {
     return (
       <header className={style.main}>
         {routes[0].children?.map((r) => (

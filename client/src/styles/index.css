@@ -61,3 +61,10 @@ main {
     padding: 0 15px;
   }
 }
+
+@media screen and (max-width: 690px) {
+  main {
+    width: 90%;
+    padding: 0 15px;
+  }
+}
