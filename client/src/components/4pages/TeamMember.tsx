@@ -24,7 +24,7 @@ const Avatar = ({ member }: { member: Member }) => {
   const useGitHub = useContext(HasGitHub);
   const [direction, setDirection] = useState([0, 0]);
 
-  let src = "/logo.png";
+  let src = "/avatars/default.png";
   if (member.avatar) src = member.avatar;
   else if (useGitHub) src = `https://github.com/${member.name}.png?size=100`;
 
@@ -49,9 +49,9 @@ const Avatar = ({ member }: { member: Member }) => {
     >
       <img
         src={src}
-        alt={`${member}'s avatar`}
+        alt={`${member.name}'s avatar`}
         style={{
-          transform: `perspective(10px) rotateX(${direction[1]}deg) rotateY(${direction[0]}deg)`,
+          transform: `perspective(8px) rotateX(${direction[1]}deg) rotateY(${direction[0]}deg)`,
         }}
       />
     </div>
@@ -59,15 +59,15 @@ const Avatar = ({ member }: { member: Member }) => {
 };
 
 const Information = ({ member }: { member: Member }) => {
-  const useGitHub = useContext(HasGitHub);
+  // const useGitHub = useContext(HasGitHub);
 
   return (
     <div className={style.info}>
-      {!useGitHub && (
+      {/* {!useGitHub && (
         <span className={`${style.hint} ${style.warning}`}>
           Этот пользователь не имеет GitHub профиль!
         </span>
-      )}
+      )} */}
 
       <p className={style.title}>
         {member.name} <span>{member.role}</span>
@@ -138,7 +138,10 @@ const Socials = ({ member }: { member: Member }) => {
           target="_blank"
           rel="noreferrer"
           key={s}
-          className={style.social}
+          className={
+            style.social +
+            (s.startsWith("https://github.com/") ? " " + style.special : "")
+          }
         >
           {namedLinks.find((l) => s.startsWith(l.href))?.name ?? "Сайт"}
         </a>
