@@ -52,10 +52,12 @@ main {
   align-items: center;
   flex-direction: column;
 
-  width: 100%;
+  width: 75%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+@media screen and (max-width: 500px) {
+  main {
+    width: 100%;
+    padding: 0 15px;
+  }
 }
