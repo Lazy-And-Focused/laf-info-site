@@ -13,3 +13,9 @@ export type Member = {
   socials?: string[];
   meta?: string[];
 };
+
+export type SocialLink = {
+  href: string;
+  name: string;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+};

@@ -27,20 +27,23 @@ const Browser = ({
     <div className={style.container}>
       <div className={style.tabs}>
         <div className={style.title}>{title ?? "Браузер"}</div>
-        {tabs.map((t) => (
-          <div
-            key={t.name}
-            className={style.tab + (openTab === t ? " " + style.active : "")}
-            onClick={() => setOpenTab(t)}
-          >
-            {t.favicon && (
-              <span className={style.favicon}>
-                <img src={t.favicon} alt={t.name} />
-              </span>
-            )}
-            {t.name}
-          </div>
-        ))}
+        {tabs.map((t) => {
+          const isOpen = openTab === t ? " " + style.active : "";
+          return (
+            <div
+              key={t.name}
+              className={style.tab + (isOpen ? " " + style.active : "")}
+              onClick={() => setOpenTab(isOpen ? null : t)}
+            >
+              {t.favicon && (
+                <span className={style.favicon}>
+                  <img src={t.favicon} alt={t.name} />
+                </span>
+              )}
+              {t.name}
+            </div>
+          );
+        })}
       </div>
       <div className={style.content}>
         {openTab?.element ?? children ?? "Вкладка не выбрана"}

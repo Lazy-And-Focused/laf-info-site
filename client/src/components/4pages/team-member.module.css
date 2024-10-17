@@ -71,7 +71,7 @@
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .social {
@@ -87,7 +87,7 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 
   border: 1px solid #303030;
   border-radius: 5px;
@@ -104,6 +104,11 @@
   border-style: solid;
 }
 
+.social > .icon {
+  width: 12px;
+  height: 12px;
+}
+
 @keyframes jumping {
   0% {
     transform: translateY(0);
@@ -113,5 +118,19 @@
   }
   60% {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .avatar {
+    width: 100%;
+    height: auto;
+    > img {
+      aspect-ratio: 1 / 1;
+    }
   }
 }
