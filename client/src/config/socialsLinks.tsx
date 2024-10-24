@@ -2,11 +2,17 @@ import DiscordIcon from "../assets/icons/DiscordIcon";
 import GravatarIcon from "../assets/icons/GravatarIcon";
 import GitHubIcon from "../assets/icons/GutHubIcon";
 import TelegramIcon from "../assets/icons/TelegramIcon";
+import WebsiteIcon from "../assets/icons/WebsiteIcon";
 import YouTubeIcon from "../assets/icons/YouTubeIcon";
 
 import { SocialLink } from "../types";
 
 const namedLinks: SocialLink[] = [
+  {
+    href: "(personal) ",
+    name: "Персональный сайт",
+    icon: WebsiteIcon,
+  },
   {
     href: "https://github.com/",
     name: "GitHub",

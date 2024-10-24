@@ -1,19 +1,14 @@
 import { NavLink } from "react-router-dom";
 import routes from "../config/routes";
 import style from "./header.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useDeviceWidth from "../hooks/useDeviceWidth";
 
 /**
  * Шапка сайта
  */
 const Header = () => {
-  const [ww, setWindowWidth] = useState(window.innerWidth);
-  const handleResize = () => setWindowWidth(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const ww = useDeviceWidth();
 
   if (ww > 690) {
     return (
