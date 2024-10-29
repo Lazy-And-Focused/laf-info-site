@@ -1,25 +1,21 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import Achievements from "../pages/Achievements";
-import Home from "../pages/Home";
-import Information from "../pages/Information";
-import News from "../pages/News";
-import Projects from "../pages/Projects";
-import { ConfigRoute } from "../types";
+import { createBrowserRouter } from 'react-router-dom';
+import App from '../App';
+import About from '../pages/About';
+import Home from '../pages/Home';
+import News from '../pages/News';
+import { ConfigRoute } from '../types';
 
 /**
  * Все пути к страницам приложения (сайта)
  */
 const routes: ConfigRoute[] = [
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
-      { name: "Главная", path: "/", element: <Home /> },
-      { name: "Новости", path: "news", element: <News /> },
-      { name: "Достижения", path: "achievements", element: <Achievements /> },
-      { name: "Информация", path: "information", element: <Information /> },
-      { name: "Проекты", path: "projects", element: <Projects /> },
+      { name: 'Главная', path: '/', element: <Home /> },
+      { name: 'Новости', path: 'news', element: <News /> },
+      { name: 'О нас', path: 'about', element: <About /> },
     ],
   },
 ];

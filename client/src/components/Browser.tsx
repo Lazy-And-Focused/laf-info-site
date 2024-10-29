@@ -1,5 +1,5 @@
-import { useState } from "react";
-import style from "./browser.module.css";
+import { useState } from 'react';
+import ListIcon from '../assets/icons/ListIcon';
 
 type Tab = { name: string; favicon?: string; element: React.ReactNode };
 
@@ -22,31 +22,58 @@ const Browser = ({
   children?: React.ReactNode;
 }) => {
   const [openTab, setOpenTab] = useState<Tab | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <div className={style.container}>
-      <div className={style.tabs}>
-        <div className={style.title}>{title ?? "Браузер"}</div>
-        {tabs.map((t) => {
-          const isOpen = openTab === t ? " " + style.active : "";
-          return (
-            <div
-              key={t.name}
-              className={style.tab + (isOpen ? " " + style.active : "")}
-              onClick={() => setOpenTab(isOpen ? null : t)}
-            >
-              {t.favicon && (
-                <span className={style.favicon}>
-                  <img src={t.favicon} alt={t.name} />
-                </span>
-              )}
-              {t.name}
+    <div className='flex min-h-[400px] min-w-full flex-col rounded-lg bg-white shadow-lg md:min-w-[600px]'>
+      <div className='flex flex-row items-center justify-between gap-3 rounded-t-lg border-b border-gray-200 bg-emerald-200/15 px-4 py-2'>
+        <div className={'text-lg font-semibold text-gray-900'}>{title ?? 'Браузер'}</div>
+        <div className='relative'>
+          <button
+            className='flex min-w-40 max-w-max cursor-pointer items-center justify-end gap-x-2 rounded-md px-3 py-1 hover:bg-gray-100'
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            {openTab ? openTab.name : 'Выберите вкладку'}
+            <ListIcon />
+          </button>
+          {dropdownOpen && (
+            <div className='absolute right-0 z-10 mt-1 w-full min-w-min rounded-md border bg-white shadow-lg'>
+              <button
+                className={`w-full text-ellipsis text-nowrap px-4 py-2 text-left hover:bg-gray-100 ${
+                  openTab === null ? 'bg-gray-100' : ''
+                }`}
+                onClick={() => {
+                  setOpenTab(null);
+                  setDropdownOpen(false);
+                }}
+              >
+                Не выбрано
+              </button>
+              {tabs.map((t) => (
+                <button
+                  key={t.name}
+                  className={`relative flex w-full min-w-max items-center gap-4 overflow-hidden text-ellipsis text-nowrap px-4 py-2 text-left hover:bg-gray-100 ${
+                    openTab === t ? 'bg-gray-100' : ''
+                  }`}
+                  onClick={() => {
+                    setOpenTab(t);
+                    setDropdownOpen(false);
+                  }}
+                >
+                  {t.favicon && (
+                    <span className='block aspect-square h-6 overflow-clip rounded'>
+                      <img src={t.favicon} alt={t.name} className='h-full w-full' />
+                    </span>
+                  )}
+                  {t.name}
+                </button>
+              ))}
             </div>
-          );
-        })}
+          )}
+        </div>
       </div>
-      <div className={style.content}>
-        {openTab?.element ?? children ?? "Вкладка не выбрана"}
+      <div className='flex-1 overflow-y-auto p-4'>
+        {openTab?.element ?? children ?? 'Вкладка не выбрана'}
       </div>
     </div>
   );
