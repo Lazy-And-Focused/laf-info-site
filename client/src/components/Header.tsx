@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../config/routes';
 import { useState, useEffect } from 'react';
+import GitHubIcon from '../assets/icons/GutHubIcon';
 
 /**
  * Шапка сайта
@@ -24,9 +25,9 @@ const Header = () => {
     >
       <nav aria-label='Global' className='flex flex-wrap items-center justify-between p-6 lg:px-8'>
         <div className='flex flex-1 items-center'>
-          <Link to='/' className='-m-1.5 p-1.5 shadow'>
+          <Link to='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>LAF</span>
-            <img alt='logo' src='/logo.png' className='h-8 w-auto rounded' />
+            <img alt='logo' src='/logo.png' className='h-8 w-auto rounded shadow' />
           </Link>
         </div>
         <div className='flex flex-1 justify-center gap-x-8 lg:gap-x-12'>
@@ -45,11 +46,12 @@ const Header = () => {
         <div className='flex flex-1 justify-end'>
           <a
             href='https://github.com/Lazy-And-Focused'
-            className={`text-sm font-semibold text-gray-900 ${scrollY > 0 ? 'text-slate-100' : ''}`}
+            className={`flex items-center justify-center text-sm font-semibold text-gray-900 ${scrollY > 0 ? 'text-slate-100' : ''}`}
             target='_blank'
             rel='noreferrer'
           >
-            К проектам <span aria-hidden='true'>&rarr;</span>
+            <span className='hidden sm:inline'>Наш GitHub</span>
+            <GitHubIcon className='ml-2 h-5 w-5' />
           </a>
         </div>
       </nav>

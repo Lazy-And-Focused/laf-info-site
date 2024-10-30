@@ -1,8 +1,8 @@
 const News = () => {
   return (
     <main className='mx-auto h-full max-w-7xl'>
-      <section className='flex h-2/5 w-full flex-col items-center justify-center rounded-b-xl bg-emerald-200 px-6 pt-14 shadow-xl lg:px-8'>
-        <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
+      <section className='flex h-2/5 min-h-max w-full flex-col items-center justify-center rounded-b-xl bg-emerald-200 px-6 pt-14 shadow-xl lg:px-8'>
+        <div className='lg:py-46 mx-auto max-w-2xl py-16 sm:py-32'>
           <div className='hidden sm:flex sm:items-center sm:justify-center'></div>
           <div className='text-center'>
             <h1 className='text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl'>
