@@ -18,11 +18,18 @@ const App = () => {
 };
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname]);
+    if (hash) {
+      const el = document.getElementById(hash.slice(1));
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }, [hash]);
 
   return null;
 };

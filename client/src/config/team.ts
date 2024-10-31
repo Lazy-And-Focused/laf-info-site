@@ -1,30 +1,36 @@
-import { Member } from '../types';
+import { BaseMember, Member } from '../types';
+import formatLinks from '../utils/formatLinks';
 
 /**
  * Массив с именами пользователей GitHub, которые состоят в команде LAF.
  */
-const team: Member[] = [
+const originalTeam: BaseMember[] = [
   {
-    name: 'aculaOne',
+    tag: 'aculaOne',
+    name: 'Valentin Bird',
     role: 'Frontend-разработчик',
     description:
-      'Привет! Я интересовался программированием с 11 лет, в 13 начал изучать свой первый язык – PHP, а в данный момент занимаюсь веб-разработкой около трёх лет. Программирование для меня – не просто очередное хобби, как дизайн сайтов или писательства, а одно из моих любимых занятий, точнее веб-разработка, с которой я бы хотел связать свою дальнейшую жизнь.',
+      'Привет! Я интересовался программированием с 11 лет, в 13 начал изучать свой первый язык – PHP, а в данный момент занимаюсь веб-разработкой около трёх лет.\nПрограммирование для меня – не просто очередное хобби, как дизайн сайтов или писательства, а одно из моих любимых занятий, точнее веб-разработка, с которой я бы хотел связать свою дальнейшую жизнь.',
     socials: [
       '(personal) https://aculaOne.netlify.app/',
+      'https://github.com/aculaOne',
       'https://gravatar.com/aculaone',
       'https://t.me/acula_1',
       'https://vk.com/acula_1',
-      'http://tiktok.com/@acula_1',
+      'https://pinterest.com/acula_1/',
       'https://twitch.tv/acula_1',
+      'https://tiktok.com/@acula_1',
     ],
   },
   {
+    tag: 'fockusty',
     name: 'FOCKUSTY',
     role: 'Backend-разработчик',
     description:
-      'Меня зовут ?????, на август 2024 года мне 15 лет. Почему я начал изучать программирование? Всё просто, я просто начал, по приколу, да, вот такой вот я. Мой первый язык - JavaScript, сначала я изучал HTML & CSS (Все мы знаем, что они не ЯП), а потом переключился на js. Я нашел свой интерес в программировании. Раньше я снимал видео на платформу YouTube, но мне в один момент надоело и я начал изучать веб. Я начал изучать программирование с 13 лет (2023 год в июне)',
+      'Почему я начал изучать программирование? Всё просто, я просто начал, по приколу, да, вот такой вот я. На август 2024 года мне 15 лет. Мой первый язык - JavaScript, сначала я изучал HTML & CSS (Все мы знаем, что они не ЯП), а потом переключился на JS. Я нашел свой интерес в программировании. Раньше я снимал видео на платформу YouTube, но мне в один момент надоело и я начал изучать веб. Я начал изучать программирование с 13 лет (2023 год в июне).',
     socials: [
       '(personal) https://fockusty.netlify.app/',
+      'https://github.com/FOCKUSTY',
       'https://gravatar.com/fockusty',
       'https://www.youtube.com/channel/UCONoOdImtgCZKih1nxDjxDg',
       'https://vk.com/fockusty',
@@ -36,22 +42,31 @@ const team: Member[] = [
     ],
   },
   {
-    name: 'lottophello',
+    tag: 'lottophello',
+    name: 'LotTop',
     role: 'Начинающий Frontend-разработчик',
     description:
       'Я – ЛотТоп и делаю всё, что мне приходит в голову. Работаю в таких компаниях (командах), как LAF и lottopstudios.',
     socials: [
       // "(personal) https://lottophello.github.io/lottop_info/",
+      'https://github.com/lottophello',
       'https://www.youtube.com/channel/UCIJBS4XJJeM6MADIiVMGueA',
     ],
     meta: ['leave'],
   },
   {
-    name: 'Omonillo',
+    tag: 'omonillo',
+    name: 'Омонилло',
     role: 'Промоутер',
-    description: '',
-    meta: ['no-gh'],
+    avatar: '/avatars/omonillo.png',
+    description:
+      'Меня зовут Азамжанов Омонилло, а с остальными разработчиками вы, скорее всего, уже познакомились.\nМы активно работаем над проектами, которые позволяют нам улучшить наши навыки и применить полученные знания на практике.',
   },
 ];
+
+const team: Member[] = originalTeam.map<Member>((p) => ({
+  ...p,
+  socials: p.socials ? formatLinks(p.socials) : [],
+}));
 
 export default team;

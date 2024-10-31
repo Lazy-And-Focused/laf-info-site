@@ -1,11 +1,16 @@
 import DiscordIcon from '../assets/icons/DiscordIcon';
 import GravatarIcon from '../assets/icons/GravatarIcon';
-import GitHubIcon from '../assets/icons/GutHubIcon';
+import GitHubIcon from '../assets/icons/GitHubIcon';
 import TelegramIcon from '../assets/icons/TelegramIcon';
 import WebsiteIcon from '../assets/icons/WebsiteIcon';
 import YouTubeIcon from '../assets/icons/YouTubeIcon';
 
 import { SocialLink } from '../types';
+import TikTokIcon from '../assets/icons/TikTokIcon';
+import TwitchIcon from '../assets/icons/TwitchIcon';
+import PinterestIcon from '../assets/icons/PinterestIcon';
+import TwitterIcon from '../assets/icons/TwitterIcon';
+import VKIcon from '../assets/icons/VKIcon';
 
 const namedLinks: SocialLink[] = [
   {
@@ -26,6 +31,7 @@ const namedLinks: SocialLink[] = [
   {
     href: 'https://vk.com/',
     name: 'VK',
+    icon: VKIcon,
   },
   {
     href: 'https://discord.com/invite',
@@ -43,16 +49,19 @@ const namedLinks: SocialLink[] = [
     icon: TelegramIcon,
   },
   {
-    href: 'http://tiktok.com/',
+    href: 'https://tiktok.com/',
     name: 'TikTok',
+    icon: TikTokIcon,
   },
   {
     href: 'https://twitch.tv/',
     name: 'Twitch',
+    icon: TwitchIcon,
   },
   {
     href: 'https://pinterest.com/',
     name: 'Pinterest',
+    icon: PinterestIcon,
   },
   {
     href: 'https://steamcommunity.com/profiles/',
@@ -61,6 +70,7 @@ const namedLinks: SocialLink[] = [
   {
     href: 'https://twitter.com/',
     name: 'Twitter',
+    icon: TwitterIcon,
   },
   {
     href: 'https://www.youtube.com/',

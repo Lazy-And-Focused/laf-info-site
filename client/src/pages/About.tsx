@@ -1,4 +1,3 @@
-import Browser from '../components/Browser';
 import TeamMemberCard from '../components/TeamMemberCard';
 import team from '../config/team';
 
@@ -19,24 +18,22 @@ const About = () => {
         </div>
       </section>
 
-      <section className='flex h-full w-full flex-col items-center justify-center px-6 pt-14 lg:px-8'>
-        <Browser
-          tabs={[
-            {
-              name: 'Команда',
-              favicon: 'logo.png',
-              element: (
-                <div className='flex flex-col gap-4'>
-                  {team
-                    .filter((person) => !person.meta?.includes('leave'))
-                    .map((person) => (
-                      <TeamMemberCard key={person.name} member={person} />
-                    ))}
-                </div>
-              ),
-            },
-          ]}
-        />
+      <section
+        id='members'
+        className='flex min-h-full w-full flex-col items-center justify-center px-6 pt-14 lg:px-8'
+      >
+        <ul
+          role='list'
+          className='mx-auto grid w-full max-w-7xl items-stretch gap-24 bg-white p-4 sm:grid-cols-2 xl:grid-cols-3'
+        >
+          {team
+            .filter((person) => !person.meta?.includes('leave'))
+            .map((person) => (
+              <li key={person.tag} className='flex h-full items-stretch'>
+                <TeamMemberCard member={person} type='full' />
+              </li>
+            ))}
+        </ul>
       </section>
     </main>
   );

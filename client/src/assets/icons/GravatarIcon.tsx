@@ -5,7 +5,6 @@ const GravatarIcon = (props: React.SVGProps<SVGSVGElement>) => {
       width='16'
       height='16'
       fill='currentColor'
-      className='bi bi-gravatar' // этого класса нет
       viewBox='0 0 24 24'
       {...props}
     >

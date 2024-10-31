@@ -1,51 +1,184 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Member } from '../types';
 import CardAvatar from './CardAvatar';
 import useDeviceWidth from '../hooks/useDeviceWidth';
-import GitHubIcon from '../assets/icons/GutHubIcon';
+import GitHubIcon from '../assets/icons/GitHubIcon';
+import WebsiteIcon from '../assets/icons/WebsiteIcon';
+import ListIcon from '../assets/icons/ListIcon';
 const HasGitHub = createContext(false);
 
 /**
  * Компонент, возвращающий карточку участника
  * @param {Member} member Объект с информацией об участнике команды
  */
-const TeamMemberCard = ({ member }: { member: Member }) => {
+const TeamMemberCard = ({ member, type }: { member: Member; type?: 'default' | 'full' }) => {
+  const hasGitHub =
+    member.socials.some((link) => link.href.startsWith('https://github.com/')) || false;
+
+  return (
+    <HasGitHub.Provider value={hasGitHub}>
+      {type === 'full' ? <FullVariant member={member} /> : <DefaultVariant member={member} />}
+    </HasGitHub.Provider>
+  );
+};
+
+const DefaultVariant = ({ member }: { member: Member }) => {
+  const hasGitHub = useContext(HasGitHub);
+
   const ww = useDeviceWidth();
-  const ngh = !member.meta?.includes('no-gh') || false;
 
   const [avatarSrc, setAvatarSrc] = useState('/avatars/default.png');
   useEffect(() => {
     if (member.avatar) {
       setAvatarSrc(member.avatar);
-    } else if (ngh) {
-      setAvatarSrc(`https://github.com/${member.name}.png?size=${ww > 690 ? 100 : 360}`);
+    } else if (hasGitHub) {
+      setAvatarSrc(`https://github.com/${member.tag}.png?size=${ww > 690 ? 360 : 120}`);
     } else {
       setAvatarSrc('/avatars/default.png');
     }
-  }, [member.avatar, member.name, ngh, ww]);
+  }, [member.avatar, member.tag, hasGitHub, ww]);
 
   return (
-    <HasGitHub.Provider value={ngh}>
-      <div className={`flex items-center gap-x-6 rounded bg-cyan-100 p-2`}>
-        <CardAvatar src={avatarSrc} alt={`${member.name}'s avatar`} className='aspect-ratio w-24' />
-        <div className='mr-2 w-full text-end'>
-          <h3 className='align-center flex flex-row items-center justify-end gap-x-2 text-base/7 font-semibold tracking-tight text-gray-900'>
-            {member.name}
-            {ngh ? (
-              <a
-                href={`https://github.com/${member.name}`}
-                target='_blank'
-                rel='noreferrer'
-                className='md:text-md text-sm/6 font-semibold text-indigo-600'
-              >
-                <GitHubIcon width={16} height={16} />
-              </a>
-            ) : null}
-          </h3>
-          <p className='text-sm/6 font-semibold text-indigo-600'>{member.role}</p>
+    <div className={`flex items-center gap-x-6 rounded bg-green-50 p-2`}>
+      <CardAvatar src={avatarSrc} alt={`${member.name}'s avatar`} className='aspect-ratio w-24' />
+      <div className='mr-2 w-full text-end'>
+        <h3 className='align-center flex flex-row items-center justify-end gap-x-2 text-base/7 font-semibold tracking-tight text-gray-900'>
+          {member.name}
+          {hasGitHub ? (
+            <a
+              href={
+                member.socials.find((link) => link.href.startsWith('https://github.com/'))?.href
+              }
+              target='_blank'
+              rel='noreferrer'
+              className='md:text-md text-sm/6 font-semibold text-green-600'
+            >
+              <GitHubIcon width={16} height={16} />
+            </a>
+          ) : null}
+        </h3>
+        <p className='text-sm/6 font-semibold text-green-300'>{member.role}</p>
+      </div>
+    </div>
+  );
+};
+
+const FullVariant = ({ member }: { member: Member }) => {
+  const hasSocials = member.socials.length !== 0;
+  const hasGitHub = useContext(HasGitHub);
+  // For social links
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const ww = useDeviceWidth();
+
+  const [avatarSrc, setAvatarSrc] = useState('/avatars/default.png');
+  useEffect(() => {
+    if (member.avatar) {
+      setAvatarSrc(member.avatar);
+    } else if (hasGitHub) {
+      setAvatarSrc(`https://github.com/${member.tag}.png?size=${ww > 690 ? 360 : 120}`);
+    } else {
+      setAvatarSrc('/avatars/default.png');
+    }
+  }, [member.avatar, member.tag, hasGitHub, ww]);
+
+  return (
+    <div className='relative max-w-md rounded bg-green-50 px-2 py-4 text-center'>
+      {/* HEADER */}
+      <p className='absolute left-0 right-0 top-0 rounded-t-md border-2 border-green-200 border-b-green-600 bg-green-100 px-1 py-2 text-xs font-semibold text-green-600'>
+        {member.role}
+      </p>
+
+      {/* FOOTER */}
+      <p className='absolute bottom-0 left-0 right-0 h-6 rounded-b-md border-2 border-green-200 border-t-green-600 bg-green-100 font-semibold text-green-600' />
+
+      {/* CONTENT */}
+      <div className='flex w-full flex-col gap-y-4 py-6'>
+        <h3 className='mt-2 flex flex-col items-center text-lg font-semibold tracking-tight text-gray-900'>
+          {member.name}
+        </h3>
+
+        <div className={`relative px-4 ${!hasSocials ? 'mb-12' : ''}`}>
+          <CardAvatar
+            src={avatarSrc}
+            alt={`${member.name}'s avatar`}
+            className='aspect-ratio w-full'
+          />
+          {hasSocials && (
+            <div className='absolute bottom-3 left-3 right-3 flex items-center justify-center'>
+              <ul className='flex max-w-max flex-row items-center justify-center gap-2 rounded-full border-2 border-green-200/25 bg-green-100/25 p-2 backdrop-blur-md'>
+                {member.socials.slice(0, 5).map((s) => (
+                  <li key={s.href}>
+                    <a
+                      href={s.href}
+                      target='_blank'
+                      rel='noreferrer'
+                      aria-label={`Ссылка на ${s.name}`}
+                      title={s.name}
+                      className='md:text-md text-sm/6 font-semibold text-green-400'
+                    >
+                      {s.icon ? (
+                        <s.icon width={16} height={16} />
+                      ) : (
+                        <WebsiteIcon width={16} height={16} />
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {hasSocials && (
+          <div className='relative'>
+            <button
+              className='flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-md px-3 py-1 hover:bg-green-100'
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              <ListIcon /> Все ссылки
+            </button>
+            {dropdownOpen && (
+              <div className='absolute bottom-0 right-0 top-auto z-10 mt-1 w-full min-w-min rounded-md border bg-white shadow-lg'>
+                {member.socials.map((s) => (
+                  <a
+                    href={s.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    key={s.name}
+                    className='relative flex w-full min-w-max items-center justify-start gap-2 overflow-hidden text-ellipsis text-nowrap px-4 py-2 text-left hover:bg-gray-100'
+                    onClick={() => {
+                      setDropdownOpen(false);
+                    }}
+                  >
+                    {s.icon && (
+                      <span className='flex aspect-square h-6 items-center justify-start overflow-clip rounded'>
+                        <s.icon width={16} height={16} />
+                      </span>
+                    )}
+                    {s.name}
+                  </a>
+                ))}
+                <button
+                  className='relative flex w-full min-w-max items-center gap-2 overflow-hidden text-ellipsis text-nowrap px-4 py-2 text-left hover:bg-gray-100'
+                  onClick={() => {
+                    setDropdownOpen(false);
+                  }}
+                >
+                  <span className='block aspect-square h-6 overflow-clip rounded' />
+                  Закрыть
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className='w-full text-pretty rounded border-2 border-green-100 bg-white p-2 text-start text-sm font-medium text-gray-700'>
+          {member.description.split('\n').map((p) => (
+            <p key={p}>{p}</p>
+          ))}
         </div>
       </div>
-    </HasGitHub.Provider>
+    </div>
   );
 };
 

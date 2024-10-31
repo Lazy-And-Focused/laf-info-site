@@ -1,21 +1,20 @@
+import WebsiteIcon from '../assets/icons/WebsiteIcon';
 import namedLinks from '../config/socialsLinks';
 import { SocialLink } from '../types';
 
-const formatLinks = (links: string[]) => {
+const formatLinks = (links: string[]): SocialLink[] => {
   const special = ['(personal)', 'https://github.com/'];
-  const result = links.map((l) => ({
-    display: namedLinks.find((nl: SocialLink) => l.startsWith(nl.href))?.name,
-    url: l,
-    icon: namedLinks.find((nl: SocialLink) => l.startsWith(nl.href))?.icon,
-    special: special.some((s) => l.startsWith(s)),
-  }));
-  result.forEach((l) => {
-    if (l.url.match(/\([a-z]+\)/)) {
-      l.url = l.url.replace(/\([a-z]+\)/g, '').trim();
-    }
-  });
-  result.sort((a, b) => (a.special === b.special ? 0 : a.special ? -1 : 1));
-  return result;
+  return links
+    .map((l, i) => {
+      const link = namedLinks.find((nl) => l.startsWith(nl.href));
+      return {
+        name: link?.name || `link_user_${i}`,
+        href: l.replace(/\([a-z]+\)/g, '').trim(),
+        icon: link?.icon || WebsiteIcon,
+        special: special.some((s) => l.startsWith(s)),
+      };
+    })
+    .sort((a, b) => (a.special === b.special ? 0 : a.special ? -1 : 1));
 };
 
 export default formatLinks;

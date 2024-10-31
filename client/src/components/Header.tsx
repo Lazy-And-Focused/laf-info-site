@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../config/routes';
 import { useState, useEffect } from 'react';
-import GitHubIcon from '../assets/icons/GutHubIcon';
+import GitHubIcon from '../assets/icons/GitHubIcon';
 
 /**
  * Шапка сайта
