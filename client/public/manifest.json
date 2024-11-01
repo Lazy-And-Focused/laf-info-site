@@ -6,17 +6,17 @@
   "description": "Главный сайт команды разработчиков LAF, где можно узреть их творения!",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.svg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/svg+xml"
     },
     {
-      "src": "logo.png",
+      "src": "images/logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo.png",
+      "src": "images/logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -24,6 +24,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#418d76",
-  "background_color": "#418d76",
+  "background_color": "#205848",
   "categories": ["develop", "web", "website", "team", "frontend", "backend", "laf"]
 }

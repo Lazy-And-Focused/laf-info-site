@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <main className='h-full w-full'>
-      <section className='flex h-screen w-full flex-col items-center justify-center bg-[#418d76] bg-[url("/background.png")] bg-cover bg-center bg-no-repeat px-6 pt-14 shadow-xl lg:px-8 dark:bg-[#205848] dark:bg-none'>
+      <section className='flex h-screen w-full flex-col items-center justify-center bg-[#418d76] bg-[url("/images/background.png")] bg-cover bg-center bg-no-repeat px-6 pt-14 shadow-xl lg:px-8 dark:bg-[#205848] dark:bg-none'>
         <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
           <div className='text-center'>
             <h1 className='text-balance text-5xl font-semibold tracking-tight text-slate-100 drop-shadow-md sm:text-7xl'>
@@ -32,9 +32,9 @@ const Home = () => {
 
       <section
         id='members'
-        className='flex h-screen w-full flex-col items-center justify-center px-6 pt-14 lg:px-8'
+        className='flex min-h-screen w-full flex-col items-center justify-center px-6 py-14 lg:px-8'
       >
-        <div className='mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3'>
+        <div className='mx-auto grid max-w-7xl gap-16 px-6 md:gap-20 lg:px-8 xl:grid-cols-3'>
           <div className='max-w-xl'>
             <h2 className='text-pretty text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100'>
               Давайте познакомимся

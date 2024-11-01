@@ -4,6 +4,7 @@ import About from '../pages/About';
 import Home from '../pages/Home';
 import News from '../pages/News';
 import { ConfigRoute } from '../types';
+import NotFound from '../pages/NotFound';
 
 /**
  * Все пути к страницам приложения (сайта)
@@ -17,6 +18,10 @@ const routes: ConfigRoute[] = [
       { name: 'Новости', path: 'news', element: <News /> },
       { name: 'О нас', path: 'about', element: <About /> },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ];
 

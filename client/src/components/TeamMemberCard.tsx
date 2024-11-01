@@ -24,14 +24,14 @@ const TeamMemberCard = ({ member, type }: { member: Member; type?: 'default' | '
 const DefaultVariant = ({ member }: { member: Member }) => {
   const hasGitHub = useContext(HasGitHub);
 
-  const [avatarSrc, setAvatarSrc] = useState('/avatars/default.png');
+  const [avatarSrc, setAvatarSrc] = useState('/images/avatars/default.png');
   useEffect(() => {
     if (member.avatar) {
       setAvatarSrc(member.avatar);
     } else if (hasGitHub) {
       setAvatarSrc(`https://github.com/${member.tag}.png?size=120`);
     } else {
-      setAvatarSrc('/avatars/default.png');
+      setAvatarSrc('/images/avatars/default.png');
     }
   }, [member.avatar, member.tag, hasGitHub]);
 
@@ -66,14 +66,14 @@ const FullVariant = ({ member }: { member: Member }) => {
   // For social links
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const [avatarSrc, setAvatarSrc] = useState('/avatars/default.png');
+  const [avatarSrc, setAvatarSrc] = useState('/images/avatars/default.png');
   useEffect(() => {
     if (member.avatar) {
       setAvatarSrc(member.avatar);
     } else if (hasGitHub) {
       setAvatarSrc(`https://github.com/${member.tag}.png?size=360`);
     } else {
-      setAvatarSrc('/avatars/default.png');
+      setAvatarSrc('/images/avatars/default.png');
     }
   }, [member.avatar, member.tag, hasGitHub]);
 

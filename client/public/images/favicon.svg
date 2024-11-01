@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" rx="8" fill="#E4FFF0"/>
+<mask id="mask0_41_154" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="9" y="3" width="14" height="26">
+<g style="mix-blend-mode:darken">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.32 3.73334C10.9651 3.73334 9.8667 4.83173 9.8667 6.18667V25.8133V28.2666H12.32H19.68C21.035 28.2666 22.1334 27.1682 22.1334 25.8133H12.32V3.73334Z" fill="white"/>
+</g>
+<g style="mix-blend-mode:darken">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.8667 3.73334H9.86674H12.32H12.3201V3.73344L17.2267 16V16.0001L22.1334 28.2666H19.68L15.7547 18.4533H12.3201V28.2666C10.9651 28.2666 9.86674 27.1682 9.86674 25.8133L9.86673 18.4533V16L9.86674 3.73344L9.8667 3.73334ZM12.3201 16H14.7734L12.3201 9.86676V16Z" fill="white"/>
+</g>
+<g style="mix-blend-mode:darken">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.8667 6.18667C9.8667 4.83173 10.9651 3.73334 12.32 3.73334V16H22.1334C22.1334 17.3549 21.035 18.4533 19.68 18.4533H12.32V25.8133H22.1334C22.1334 27.1682 21.035 28.2666 19.68 28.2666H12.32H9.8667V25.8133V18.4533V16V6.18667Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_41_154)">
+<rect x="9.8667" y="3.73334" width="12.2666" height="24.5333" fill="#51E7CC"/>
+<rect x="6.10352e-05" width="32" height="32" fill="#51E7CC"/>
+<rect x="6.10352e-05" width="32" height="32" fill="url(#paint0_radial_41_154)" style="mix-blend-mode:multiply"/>
+<rect x="6.10352e-05" width="32" height="32" fill="url(#paint1_radial_41_154)" style="mix-blend-mode:multiply"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_41_154" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32.0001 24.2812) rotate(180) scale(32)">
+<stop stop-color="#D045B2"/>
+<stop offset="1" stop-color="#D045B2" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_41_154" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8.93756) rotate(90) scale(32)">
+<stop stop-color="#BDD045"/>
+<stop offset="1" stop-color="#BDD045" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

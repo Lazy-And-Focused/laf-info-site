@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Сайт LAF – FRONTEND
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Стек
 
-Currently, two official plugins are available:
+1. TypeScript
+2. React
+3. Vite
+4. ESLint
+5. Prettier
+6. Tailwind CSS
+7. React Router DOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Сборка и запуск
 
-## Expanding the ESLint configuration
+Этот проект, как Вы заметили, использует Vite с плагином для него SWC. Это означает, что сборка в режиме разработки будет куда быстрее, чем когда-либо.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Запуск выполняется по следующим командам:
 
-- Configure the top-level `parserOptions` property like this:
+```bash
+# В режиме разработки
+pnpm run dev
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+# В режиме продакшн
+pnpm run build # Сборка
+pnpm run start # Запуск
+
+# Дополнительно
+pnpm run lint   # Линтинг
+pnpm run format # Форматирование
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Для разработчиков LAF
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+Установите рекомендуемые расширения для VS Code:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+После чего убедитесь, что они подхватили необходимые файлы конфигурации.
+
+Теперь Вы можете не беспокоиться о стиле кодирования. Только не забывайте запускать линтер (`pnpm run lint`) и форматировщик (`pnpm run format`), чтобы следовать рекомендуемым соглашениям.
