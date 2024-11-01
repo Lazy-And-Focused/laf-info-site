@@ -10,7 +10,7 @@ const App = () => {
     <>
       <ScrollToTop />
       <Header />
-      <div className='h-screen'>
+      <div className='h-full min-h-min bg-slate-50 text-zinc-950 dark:bg-slate-950 dark:text-zinc-50'>
         <Outlet />
       </div>
     </>
@@ -18,7 +18,7 @@ const App = () => {
 };
 
 const ScrollToTop = () => {
-  const { hash } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -29,7 +29,7 @@ const ScrollToTop = () => {
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
-  }, [hash]);
+  }, [pathname, hash]);
 
   return null;
 };

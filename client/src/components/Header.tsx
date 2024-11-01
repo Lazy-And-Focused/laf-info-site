@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition duration-500 ease-in-out ${
-        scrollY > 0 ? 'bg-gray-900/30 backdrop-blur-md dark:bg-gray-800/30' : ''
+        scrollY > 0 ? 'rounded-b bg-gray-900/30 backdrop-blur-md dark:bg-gray-800/30' : ''
       }`}
     >
       <nav aria-label='Global' className='flex flex-wrap items-center justify-between p-6 lg:px-8'>
@@ -36,7 +36,7 @@ const Header = () => {
               key={r.path}
               to={r.path}
               className={({ isActive, isPending }) =>
-                `text-nowrap px-2 py-1 text-sm font-medium transition-colors ${isActive ? 'rounded bg-cyan-200/50 shadow' : isPending ? 'animate-pulse' : ''} ${scrollY > 0 && !isActive ? 'text-slate-100' : 'text-gray-900/85'}`
+                `text-nowrap px-2 py-1 text-sm/6 font-medium transition-colors ${isActive ? 'rounded bg-slate-50/75 text-green-500 shadow dark:text-slate-700' : isPending ? 'animate-pulse' : ''} ${scrollY > 0 && !isActive ? 'text-slate-100' : 'text-gray-900/85'}`
               }
             >
               {r.name}
