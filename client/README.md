@@ -5,10 +5,12 @@
 1. TypeScript
 2. React
 3. Vite
-4. ESLint
-5. Prettier
-6. Tailwind CSS
-7. React Router DOM
+4. Tailwind CSS
+5. daisyUI
+6. ESLint
+7. Prettier
+8. React Router DOM
+9. clsx
 
 ## Сборка и запуск
 

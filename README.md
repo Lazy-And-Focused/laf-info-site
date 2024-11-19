@@ -1,31 +1,24 @@
-# Привет!
+# Сайт LAF
+
 ## Данный мини проект
 
 - Что ж, здесь нет ничего сложного, просто простенький сайт для команда LAF
-- Мы используем React для создания клиентской части сервера и Nest для серверной (Nest для обучения)
+- Мы используем React для создания клиентской части и Nest для серверной (Nest для обучения).
 
-### Client > Какие зависимости используются ?
+### Client (Frontend) > Зависимсти
 
-- Для работы...
-1. `react`
-2. `react-dom`
-3. `react-scripts`
-5. `react-router-dom`
-4. `@testing-library/ (jest-dom, react, user-event)`
+Читайте в папке `client`. [Клик!](./client/README.md)
 
-- Что там по разработке...
-1. `typescript`
-2. `web-vitals`
-3. `@types/ (react, react-dom, react-scripts & jest)`
-
-### Server > Какие зависимости используются ?
+### Server (Backend) > Зависимсти
 
 - Для работы...
+
 1. `@nestjs/ (common, core, platform-express)`
 2. `reflect-metadata`
 3. `rxjs`
 
 - Что там по разработке...
+
 1. `@nestjs/ (cli, schematics, testing)`
 2. `@types/ (express, jest, node, supertest)`
 3. `@typescript-eslint/ (eslint-plugin, parser)`
@@ -40,15 +33,31 @@
 
 ### Хотите скачать проект ?
 
-1. Тогда запускайте консоль/терминал/powershell
-2. Откройте папку, куда хотите загрузить проект
-3. Впишите: `git clone https://github.com/FOCKUSTY/laf-info-site.git`
-4. После того, как всё установится, Вам нужно два терминала, один для клиента, другой для сервера
-6. В клиентском терминале впишите: `npm install`, после установки: `npm run start` или `npm run build`
-7. В серверном терминале впишите: `npm install`, после установки: `npm run start:dev` или `npm run start`
-8. Готово! Переходить по адресу `localhost:3000` для сервера, а для клиента он будет в терминале!
+1. Тогда запускайте ваш любимый терминал и переходите в вашу папку с проектами:
 
-### Как забилдить проект ?
+   ```bash
+   # В повершел это делается так
+   cd путь_до_папки
 
-- Для клиента просто впишите: `npm run deploy`
-- Для сервера в разработке...
+   # Пример
+   cd C:/Users/user/Desktop/my_projects
+   ```
+
+2. Скачайте проект:
+
+   ```bash
+   git clone https://github.com/FOCKUSTY/laf-info-site.git
+   ```
+
+3. После закачки репозитория впишите: `cd laf-info-site`, а затем: `pnpm install` в клиентском и серверном терминалах по отдельности (в двух директориях). Или можете скопировать этот скрипт, который установит все зависимости по очереди:
+
+   ```bash
+   cd ./client # ~/client
+   pnpm install
+
+   cd ../server # ~/server
+   pnpm install
+   ```
+
+4. Для клиента команды расписаны в `client`, для сервера используйте: `pnpm run build` и `pnpm run start`
+5. Готово! Можно переходить по адресу в консоли!

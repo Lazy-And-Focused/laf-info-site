@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
-      <div className='h-full min-h-min bg-slate-50 text-zinc-950 dark:bg-slate-950 dark:text-zinc-50'>
+      <div className='base-100 base-content h-full min-h-min'>
         <Header />
         <Outlet />
         <Footer />

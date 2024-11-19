@@ -1,7 +1,8 @@
+import { clsx } from 'clsx';
 import { useState, useEffect } from 'react';
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-type CardAvatarProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+type CardAvatarProps = DetailedHTMLProps<HTMLAttributes<HTMLImageElement>, HTMLImageElement> & {
   src: string;
   alt: string;
 };
@@ -17,36 +18,42 @@ type CardAvatarProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDiv
 const CardAvatar = (props: CardAvatarProps) => {
   const [isLoading, setLoading] = useState(true);
 
-  const [src, setImageSrc] = useState('/avatars/default.png');
+  const [src, setImageSrc] = useState(props.src);
   useEffect(() => {
     setLoading(true);
 
     const img = new Image();
-    img.onload = () => {
-      setImageSrc(props.src);
-      setTimeout(() => setLoading(false), 250);
-    };
+    img.onload = () => setLoading(false);
 
-    setTimeout(() => (img.src = props.src), 250);
+    img.onerror = () => setImageSrc('/images/avatars/default.png');
 
-    img.onerror = () => {
-      setImageSrc('/avatars/default.png');
-    };
+    img.src = src;
+  }, [src]);
+
+  useEffect(() => {
+    setImageSrc(props.src);
   }, [props.src]);
 
   return (
-    <div className='aspect-square h-16 w-16' {...props}>
-      {
-        <img
-          className='h-full w-full rounded'
-          src={src}
-          alt={props.alt}
-          style={{
-            filter: `opacity(${isLoading ? 0.8 : 1}) grayscale(${isLoading ? 1 : 0})`,
-            transition: 'all 0.5s',
-          }}
-        />
-      }
+    <div
+      {...props}
+      className={clsx(
+        'aspect-square h-auto w-16 overflow-hidden rounded bg-primary/50 text-primary-content'.split(
+          ' ',
+        ),
+        isLoading && 'flex items-center justify-center',
+        props.className,
+      )}
+    >
+      {isLoading && <span className='aspect-ratio loading loading-ring absolute' />}
+      <img
+        className={clsx(
+          'h-full w-full transition-[opacity,_filter] duration-500',
+          isLoading ? 'opacity-0 grayscale' : 'opacity-100 grayscale-0',
+        )}
+        src={src}
+        alt={props.alt}
+      />
     </div>
   );
 };
