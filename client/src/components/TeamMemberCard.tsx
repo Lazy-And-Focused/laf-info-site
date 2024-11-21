@@ -10,34 +10,46 @@ const HasGitHub = createContext(false);
  * Компонент, возвращающий карточку участника
  * @param {Member} member Объект с информацией об участнике команды
  */
-const TeamMemberCard = ({ member, type }: { member: Member; type?: 'default' | 'full' }) => {
+const TeamMemberCard = ({
+  member,
+  type = 'default',
+}: {
+  member: Member;
+  type?: 'default' | 'full';
+}) => {
   const hasGitHub =
     member.socials.some((link) => link.href.startsWith('https://github.com/')) || false;
 
+  const [avatarSrc, setAvatarSrc] = useState(getAvatarUrl(member, hasGitHub));
+
+  useEffect(() => setAvatarSrc(getAvatarUrl(member, hasGitHub)), [member, hasGitHub]);
+
   return (
     <HasGitHub.Provider value={hasGitHub}>
-      {type === 'full' ? <FullVariant member={member} /> : <DefaultVariant member={member} />}
+      {type === 'full' ? (
+        <FullVariant member={member} avatar={avatarSrc} />
+      ) : (
+        <DefaultVariant member={member} avatar={avatarSrc} />
+      )}
     </HasGitHub.Provider>
   );
 };
 
-const DefaultVariant = ({ member }: { member: Member }) => {
-  const hasGitHub = useContext(HasGitHub);
+const getAvatarUrl = (member: Member, hasGitHub: boolean) => {
+  if (member.avatar) {
+    return member.avatar;
+  } else if (hasGitHub) {
+    return `https://github.com/${member.tag}.png?size=360`;
+  }
+  return '/images/avatars/default.png';
+};
 
-  const [avatarSrc, setAvatarSrc] = useState('/images/avatars/default.png');
-  useEffect(() => {
-    if (member.avatar) {
-      setAvatarSrc(member.avatar);
-    } else if (hasGitHub) {
-      setAvatarSrc(`https://github.com/${member.tag}.png?size=120`);
-    } else {
-      setAvatarSrc('/images/avatars/default.png');
-    }
-  }, [member.avatar, member.tag, hasGitHub]);
+const DefaultVariant = ({ member, avatar }: { member: Member; avatar: string }) => {
+  const hasGitHub = useContext(HasGitHub);
 
   return (
     <div className={`flex items-center gap-x-6 rounded bg-primary/15 p-2`}>
-      <CardAvatar src={avatarSrc} alt={`${member.name}'s avatar`} className='aspect-square w-24' />
+      <CardAvatar src={avatar} alt={`${member.name}'s avatar`} className='aspect-square w-24' />
       <div className='mr-2 w-full text-end'>
         <h3 className='align-center flex flex-row items-center justify-end gap-x-2 text-base/7 font-semibold tracking-tight text-base-content'>
           {member.name}
@@ -60,22 +72,9 @@ const DefaultVariant = ({ member }: { member: Member }) => {
   );
 };
 
-const FullVariant = ({ member }: { member: Member }) => {
+const FullVariant = ({ member, avatar }: { member: Member; avatar: string }) => {
   const hasSocials = member.socials.length !== 0;
-  const hasGitHub = useContext(HasGitHub);
-  // For social links
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const [avatarSrc, setAvatarSrc] = useState('/images/avatars/default.png');
-  useEffect(() => {
-    if (member.avatar) {
-      setAvatarSrc(member.avatar);
-    } else if (hasGitHub) {
-      setAvatarSrc(`https://github.com/${member.tag}.png?size=360`);
-    } else {
-      setAvatarSrc('/images/avatars/default.png');
-    }
-  }, [member.avatar, member.tag, hasGitHub]);
 
   return (
     <div className='relative max-w-md rounded-md bg-primary/15 px-2 py-4 text-center'>
@@ -95,7 +94,7 @@ const FullVariant = ({ member }: { member: Member }) => {
 
         <div className={`relative px-4 ${!hasSocials ? 'mb-12' : ''}`}>
           <CardAvatar
-            src={avatarSrc}
+            src={avatar}
             alt={`${member.name}'s avatar`}
             className='aspect-square w-full'
           />

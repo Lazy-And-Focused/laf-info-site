@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+import HeartBreakIcon from '../assets/icons/HeartBreakIcon';
 
-type CardAvatarProps = DetailedHTMLProps<HTMLAttributes<HTMLImageElement>, HTMLImageElement> & {
+type CardAvatarProps = {
   src: string;
   alt: string;
 };
@@ -15,44 +16,49 @@ type CardAvatarProps = DetailedHTMLProps<HTMLAttributes<HTMLImageElement>, HTMLI
  * @example
  * <CardAvatar src="/avatars/default.png" alt="Default avatar" />
  */
-const CardAvatar = (props: CardAvatarProps) => {
+const CardAvatar = ({
+  src,
+  alt,
+  className,
+  ...props
+}: CardAvatarProps & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
   const [isLoading, setLoading] = useState(true);
+  const [isError, setError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
 
-  const [src, setImageSrc] = useState(props.src);
   useEffect(() => {
-    setLoading(true);
-
     const img = new Image();
-    img.onload = () => setLoading(false);
+    img.onload = () => {
+      setLoading(false);
+      setImageLoaded(true);
+    };
 
-    img.onerror = () => setImageSrc('/images/avatars/default.png');
+    img.onerror = () => (setLoading(false), setError(true));
 
     img.src = src;
   }, [src]);
-
-  useEffect(() => {
-    setImageSrc(props.src);
-  }, [props.src]);
 
   return (
     <div
       {...props}
       className={clsx(
-        'aspect-square h-auto w-16 overflow-hidden rounded bg-primary/50 text-primary-content'.split(
-          ' ',
-        ),
-        isLoading && 'flex items-center justify-center',
-        props.className,
+        'aspect-square h-auto w-16 overflow-hidden rounded',
+        (isLoading || isError) && 'flex items-center justify-center',
+        isError ? 'bg-error/50 text-error-content' : 'bg-primary/50 text-primary-content',
+        className,
       )}
     >
       {isLoading && <span className='aspect-ratio loading loading-ring absolute' />}
+      {isError && <HeartBreakIcon className='absolute' />}
       <img
+        ref={imageRef}
         className={clsx(
           'h-full w-full transition-[opacity,_filter] duration-500',
-          isLoading ? 'opacity-0 grayscale' : 'opacity-100 grayscale-0',
+          isLoading || !imageLoaded ? 'opacity-0 grayscale' : 'opacity-100 grayscale-0',
         )}
         src={src}
-        alt={props.alt}
+        alt={alt}
       />
     </div>
   );

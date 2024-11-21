@@ -8,7 +8,17 @@ export default {
     extend: {},
   },
   daisyui: {
-    themes: ['emerald', 'forest'],
+    themes: [
+      {
+        emerald: {
+          ...require('daisyui/src/theming/themes')['emerald'],
+          '--animation-btn': '0.25s',
+          '--animation-input': '0.2s',
+          '--btn-focus-scale': '0.95',
+        },
+      },
+      'forest',
+    ],
   },
   darkMode: ['class', '[data-theme="forest"]'],
   plugins: [daisyui],

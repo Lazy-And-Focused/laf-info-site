@@ -24,7 +24,7 @@ const About = () => {
       >
         <ul
           role='list'
-          className='mx-auto grid w-full max-w-7xl items-stretch gap-24 rounded-lg bg-base-content/5 p-4 sm:grid-cols-2 xl:grid-cols-3'
+          className='mx-auto grid w-full max-w-7xl justify-center gap-16 rounded-lg bg-base-content/5 p-4 sm:grid-cols-2 md:grid-cols-3 md:gap-16'
         >
           {team
             .filter((person) => !person.meta?.includes('leave'))

@@ -12,11 +12,11 @@ const Home = () => {
               Сделано с LAF
             </h1>
             <p className='mt-8 text-pretty text-lg font-medium text-slate-300 sm:text-xl/8'>
-              Мы – команда молодых, очень ленивых, но увлеченных работой энтузиастов, двигуящаяся к
+              Мы – команда молодых, очень ленивых, но увлеченных работой энтузиастов, двигуящихся к
               вершинам этого мира.
             </p>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
-              <Link to='/#members' className='btn btn-primary rounded-full'>
+              <Link to='/#info' className='btn btn-primary rounded-full'>
                 Узнать больше
               </Link>
               <Link to='/news' className='btn btn-ghost rounded-full text-slate-200'>
@@ -28,21 +28,40 @@ const Home = () => {
       </section>
 
       <section
+        id='info'
+        className='flex min-h-screen w-full flex-col items-center justify-center px-6 py-14 lg:px-8'
+      >
+        <div className='flex max-w-xl flex-col items-center justify-center text-center'>
+          <h2 className='text-pretty text-3xl font-semibold tracking-tight text-base-content sm:text-4xl'>
+            Чем вы занимаетесь?
+          </h2>
+          <p className='mt-6 text-lg/8 text-base-content/40'>
+            Мы разрабатываем малые и средние IT-продукты, независимо от их типа: веб-, натив-,
+            мобильные приложения и игры
+          </p>
+          <div className='mt-8'>
+            <Link to='/#members' className='btn disabled btn-ghost btn-primary rounded-md'>
+              А кто вы такие?
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
         id='members'
         className='flex min-h-screen w-full flex-col items-center justify-center px-6 py-14 lg:px-8'
       >
         <div className='mx-auto grid max-w-7xl gap-16 px-6 md:gap-20 lg:px-8 xl:grid-cols-3'>
           <div className='max-w-xl'>
             <h2 className='text-pretty text-3xl font-semibold tracking-tight text-base-content sm:text-4xl'>
-              Давайте познакомимся
+              А "Вы" это кто?
             </h2>
             <p className='mt-6 text-lg/8 text-base-content/40'>
-              Пока что совсем молоды, но готовые собраться вместе, чтобы покорить ваши сердца общими
-              продуктами.
+              Юная команда из тех, кто готов покорять ваши сердца!
             </p>
             <div className='mt-8'>
               <Link to='/about' className='btn btn-outline btn-primary rounded-md'>
-                Продолжить знакомство <span aria-hidden='true'>→</span>
+                Давай дальше <span aria-hidden='true'>→</span>
               </Link>
             </div>
           </div>
