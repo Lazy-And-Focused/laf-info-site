@@ -6,17 +6,17 @@ import formatLinks from '../utils/formatLinks';
  */
 const originalTeam: BaseMember[] = [
   {
-    tag: 'aculaOne',
+    tag: 'lanvalird',
     name: 'Valentin Bird',
     role: 'Frontend-разработчик',
     description:
       'Привет! Я интересовался программированием с 11 лет, в 13 начал изучать свой первый язык – PHP, а в данный момент занимаюсь веб-разработкой около трёх лет.\nПрограммирование для меня – не просто очередное хобби, как дизайн сайтов или писательства, а одно из моих любимых занятий, точнее веб-разработка, с которой я бы хотел связать свою дальнейшую жизнь.',
     socials: [
-      '(personal) https://aculaOne.netlify.app/',
-      'https://github.com/aculaOne',
-      'https://gravatar.com/aculaone',
-      'https://t.me/acula_1',
-      'https://vk.com/acula_1',
+      '(personal) https://lanvalird.netlify.app/',
+      'https://github.com/lanvalird',
+      'https://gravatar.com/lanvalird',
+      'https://t.me/lanvalird',
+      'https://vk.com/lanvalird',
       'https://pinterest.com/acula_1/',
       'https://twitch.tv/acula_1',
       'https://tiktok.com/@acula_1',
