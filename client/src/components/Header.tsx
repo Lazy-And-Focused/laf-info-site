@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import routes from '../config/routes';
 import { useState, useEffect } from 'react';
 import GitHubIcon from '../assets/icons/GitHubIcon';
+import TelegramIcon from '../assets/icons/TelegramIcon';
 import clsx from 'clsx';
 
 /**
@@ -61,6 +62,15 @@ const Header = () => {
           >
             <span className='hidden md:inline'>Наш GitHub</span>
             <GitHubIcon className='h-5 w-5 sm:ml-2' />
+          </a>
+          <a
+            href='https://t.me/laf_love'
+            className='flex items-center justify-center'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <span className='sr-only'>Telegram канал команды</span>
+            <TelegramIcon className='h-5 w-5' />
           </a>
           <ThemeSwitcher className='h-5 w-5' />
         </div>

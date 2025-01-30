@@ -2,6 +2,9 @@ import WebsiteIcon from '../assets/icons/WebsiteIcon';
 import namedLinks from '../config/socialsLinks';
 import { SocialLink } from '../types';
 
+/**
+ * Функция, преобразующая строковые ссылки в массив SocialLink[]
+ */
 const formatLinks = (links: string[]): SocialLink[] => {
   const special = ['(personal)', 'https://github.com/'];
   return links

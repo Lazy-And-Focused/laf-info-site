@@ -1,10 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
+
 import App from '../App';
 import About from '../pages/About';
 import Home from '../pages/Home';
-import News from '../pages/News';
-import { ConfigRoute } from '../types';
+import Projects from '../pages/Projects'
 import NotFound from '../pages/NotFound';
+
+import type { ConfigRoute } from '../types';
 
 /**
  * Все пути к страницам приложения (сайта)
@@ -15,7 +17,7 @@ const routes: ConfigRoute[] = [
     element: <App />,
     children: [
       { name: 'Главная', path: '/', element: <Home /> },
-      { name: 'Новости', path: 'news', element: <News /> },
+      { name: 'Проекты', path: 'projects', element: <Projects /> },
       { name: 'О нас', path: 'about', element: <About /> },
     ],
   },
