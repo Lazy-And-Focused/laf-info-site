@@ -5,7 +5,7 @@ import { SocialLink } from '../types';
 /**
  * Функция, преобразующая строковые ссылки в массив SocialLink[]
  */
-const formatLinks = (links: string[]): SocialLink[] => {
+export const formatLinks = (links: string[]): SocialLink[] => {
   const special = ['(personal)', 'https://github.com/'];
   return links
     .map((l, i) => {
@@ -20,4 +20,4 @@ const formatLinks = (links: string[]): SocialLink[] => {
     .sort((a, b) => (a.special === b.special ? 0 : a.special ? -1 : 1));
 };
 
-export default formatLinks;
+export default { formatLinks };

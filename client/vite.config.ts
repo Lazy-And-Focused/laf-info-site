@@ -5,6 +5,19 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
   server: {
     port: 3000,
+    warmup: {
+      clientFiles: [
+        './src/components/Header.tsx',
+        './src/components/Footer.tsx',
+
+        './src/hooks/useDeviceWidth.ts',
+
+        './src/assets/icons/*.tsx',
+
+        './src/config/*.ts',
+        './src/utils/*.ts',
+      ],
+    },
   },
   plugins: [react()],
 });

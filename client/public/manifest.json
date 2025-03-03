@@ -11,19 +11,19 @@
       "type": "image/svg+xml"
     },
     {
-      "src": "images/logo.png",
+      "src": "images/logos/_@192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "images/logo.png",
+      "src": "images/logos/_@192.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#418d76",
-  "background_color": "#205848",
+  "theme_color": "#d88188",
+  "background_color": "#d88188",
   "categories": ["develop", "web", "website", "team", "frontend", "backend", "laf"]
 }

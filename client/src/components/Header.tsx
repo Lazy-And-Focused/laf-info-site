@@ -33,7 +33,13 @@ const Header = () => {
         <div className='flex items-center justify-start gap-8 sm:flex-1'>
           <Link to='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>LAF</span>
-            <img alt='logo' src='/logo.png' className='h-8 w-auto rounded shadow' />
+            <img
+              width={32}
+              height={32}
+              alt='logo'
+              src='/images/logo.png'
+              className='h-8 w-auto rounded shadow'
+            />
           </Link>
         </div>
         <div className='mx-auto flex flex-1 justify-center gap-x-4 sm:gap-x-8 lg:gap-x-12'>
@@ -141,7 +147,7 @@ const ThemeSwitcher = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => 
     );
 
   return (
-    <button onClick={toggleTheme} {...props}>
+    <button onClick={toggleTheme} {...props} aria-label='Переключить тему'>
       {icon}
     </button>
   );

@@ -61,6 +61,7 @@ const DefaultVariant = ({ member, avatar }: { member: Member; avatar: string }) 
               target='_blank'
               rel='noreferrer'
               className='md:text-md dark:text-grenn-400 text-sm/6 font-semibold text-primary'
+              aria-label={`Ссылка на GitHub пользователя ${member.name}`}
             >
               <GitHubIcon width={16} height={16} />
             </a>
@@ -107,7 +108,7 @@ const FullVariant = ({ member, avatar }: { member: Member; avatar: string }) => 
                       href={s.href}
                       target='_blank'
                       rel='noreferrer'
-                      aria-label={`Ссылка на ${s.name}`}
+                      aria-label={`Ссылка на ${s.name} пользователя ${member.name}`}
                       title={s.name}
                       className='md:text-md text-base-100/96 text-sm/6 font-semibold'
                     >

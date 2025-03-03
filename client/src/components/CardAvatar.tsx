@@ -59,6 +59,7 @@ const CardAvatar = ({
         )}
         src={src}
         alt={alt}
+        loading='lazy'
       />
     </div>
   );

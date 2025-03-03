@@ -1,7 +1,8 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './pages/Loading';
 
 /**
  * Корневой компонент приложения
@@ -12,7 +13,9 @@ const App = () => {
       <ScrollToTop />
       <div className='base-100 base-content h-full min-h-min'>
         <Header />
-        <Outlet />
+        <Suspense fallback={<Loading />}>
+          <Outlet />
+        </Suspense>
         <Footer />
       </div>
     </>

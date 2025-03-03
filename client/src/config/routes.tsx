@@ -1,12 +1,16 @@
+/* eslint-disable react-refresh/only-export-components */
+
 import { createBrowserRouter } from 'react-router-dom';
 
-import App from '../App';
-import About from '../pages/About';
-import Home from '../pages/Home';
-import Projects from '../pages/Projects'
-import NotFound from '../pages/NotFound';
-
 import type { ConfigRoute } from '../types';
+import { lazy } from 'react';
+
+import App from '../App';
+import Home from '../pages/Home';
+
+const About = lazy(() => import('../pages/About'));
+const Projects = lazy(() => import('../pages/Projects'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 /**
  * Все пути к страницам приложения (сайта)
