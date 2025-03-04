@@ -42,25 +42,20 @@ const originalTeam: BaseMember[] = [
     ],
   },
   {
-    tag: 'lottophello',
-    name: 'LotTop',
-    role: 'Начинающий Frontend-разработчик',
-    description:
-      'Я – ЛотТоп и делаю всё, что мне приходит в голову. Работаю в таких компаниях (командах), как LAF и lottopstudios.',
-    socials: [
-      // "(personal) https://lottophello.github.io/lottop_info/",
-      'https://github.com/lottophello',
-      'https://www.youtube.com/channel/UCIJBS4XJJeM6MADIiVMGueA',
-    ],
-    meta: ['leave'],
-  },
-  {
     tag: 'omonillo',
     name: 'Омонилло',
     role: 'Промоутер',
     avatar: '/images/avatars/omonillo.png',
     description:
       'Меня зовут Азамжанов Омонилло, а с остальными разработчиками вы, скорее всего, уже познакомились.\nМы активно работаем над проектами, которые позволяют нам улучшить наши навыки и применить полученные знания на практике.',
+  },
+  {
+    tag: 'beyz1k',
+    name: 'beyz1k',
+    role: 'Промоутер',
+    description:
+      'Всем привет меня зовут Эмиль, я будущий промоутер и начинающий фронтенд-разработчик <3',
+    socials: ['https://github.com/beyz1k'],
   },
 ];
 

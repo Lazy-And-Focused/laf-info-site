@@ -1,63 +1,45 @@
-# Сайт LAF
+# Сайт LAF – FRONTEND
 
-## Данный мини проект
+## Стек
 
-- Что ж, здесь нет ничего сложного, просто простенький сайт для команда LAF
-- Мы используем React для создания клиентской части и Nest для серверной (Nest для обучения).
+1. TypeScript
+2. React
+3. Vite
+4. Tailwind CSS
+5. daisyUI
+6. ESLint
+7. Prettier
+8. React Router DOM
+9. clsx
 
-### Client (Frontend) > Зависимсти
+## Сборка и запуск
 
-Читайте в папке `client`. [Клик!](./client/README.md)
+Этот проект, как Вы заметили, использует Vite с плагином для него SWC. Это означает, что сборка в режиме разработки будет куда быстрее, чем когда-либо.
 
-### Server (Backend) > Зависимсти
+Запуск выполняется по следующим командам:
 
-- Для работы...
+```bash
+# В режиме разработки
+pnpm run dev
 
-1. `@nestjs/ (common, core, platform-express)`
-2. `reflect-metadata`
-3. `rxjs`
+# В режиме продакшн
+pnpm run build # Сборка
+pnpm run start # Запуск
 
-- Что там по разработке...
+# Дополнительно
+pnpm run lint   # Линтинг
+pnpm run format # Форматирование
+```
 
-1. `@nestjs/ (cli, schematics, testing)`
-2. `@types/ (express, jest, node, supertest)`
-3. `@typescript-eslint/ (eslint-plugin, parser)`
-4. `eslint, eslint-config-prettier, eslint-plugin-prettier`
-5. `jest`
-6. `prettier`
-7. `source-map-support`
-8. `supertest`
-9. `ts-jest, ts-loader, ts-node`
-10. `tsconfig-paths`
-11. `typescript`
+## Для разработчиков LAF
 
-### Хотите скачать проект ?
+Установите рекомендуемые расширения для VS Code:
 
-1. Тогда запускайте ваш любимый терминал и переходите в вашу папку с проектами:
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-   ```bash
-   # В повершел это делается так
-   cd путь_до_папки
+После чего убедитесь, что они подхватили свою конфигурацию из проекта.
 
-   # Пример
-   cd C:/Users/user/Desktop/my_projects
-   ```
+Теперь Вы можете не беспокоиться о стиле кода, поздравляю! Только не забывайте запускать линтер (`pnpm run lint`) и форматировщик (`pnpm run format`), чтобы следовать рекомендуемым соглашениям ;)
 
-2. Скачайте проект:
-
-   ```bash
-   git clone https://github.com/FOCKUSTY/laf-info-site.git
-   ```
-
-3. После закачки репозитория впишите: `cd laf-info-site`, а затем: `pnpm install` в клиентском и серверном терминалах по отдельности (в двух директориях). Или можете скопировать этот скрипт, который установит все зависимости по очереди:
-
-   ```bash
-   cd ./client # ~/client
-   pnpm install
-
-   cd ../server # ~/server
-   pnpm install
-   ```
-
-4. Для клиента команды расписаны в `client`, для сервера используйте: `pnpm run build` и `pnpm run start`
-5. Готово! Можно переходить по адресу в консоли!
