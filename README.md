@@ -1,32 +1,24 @@
-# Сайт LAF – FRONTEND
+# LAF Team Site
 
 ## Стек
 
-1. TypeScript
-2. React
-3. Vite
-4. Tailwind CSS
-5. daisyUI
-6. ESLint
-7. Prettier
-8. React Router DOM
-9. clsx
+- TypeScript
+- ESLint + Prettier
+- Vite + React + React Router DOM
+- Tailwind CSS + daisyUI
+- clsx
 
-## Сборка и запуск
-
-Этот проект, как Вы заметили, использует Vite с плагином для него SWC. Это означает, что сборка в режиме разработки будет куда быстрее, чем когда-либо.
-
-Запуск выполняется по следующим командам:
+## Команды
 
 ```bash
-# В режиме разработки
+# Запуск в режиме разработки
 pnpm run dev
 
-# В режиме продакшн
+# Запуск в продакшн
 pnpm run build # Сборка
 pnpm run start # Запуск
 
-# Дополнительно
+# Дополнительные инструменты
 pnpm run lint   # Линтинг
 pnpm run format # Форматирование
 ```
@@ -39,7 +31,10 @@ pnpm run format # Форматирование
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-После чего убедитесь, что они подхватили свою конфигурацию из проекта.
+После чего убедитесь, что настройки конфигурации были правильно подтянуты из файлов `eslint.config.js` и `.prettierrc.json`.
 
-Теперь Вы можете не беспокоиться о стиле кода, поздравляю! Только не забывайте запускать линтер (`pnpm run lint`) и форматировщик (`pnpm run format`), чтобы следовать рекомендуемым соглашениям ;)
+Перед тем, как опубликовать изменения, убедитесь в том, что они прошли проверку `pnpm run lint` и форматирование `pnpm run format`.
 
+## Конец
+
+Это действительно конец. Удачи!
