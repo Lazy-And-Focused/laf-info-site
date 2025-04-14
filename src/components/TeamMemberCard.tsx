@@ -78,7 +78,7 @@ const FullVariant = ({ member, avatar }: { member: Member; avatar: string }) => 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <div className='relative max-w-md rounded-md bg-primary/15 px-2 py-4 text-center'>
+    <div className='relative w-full max-w-md rounded-md bg-primary/15 px-2 py-4 text-center'>
       {/* HEADER */}
       <p className='absolute left-0 right-0 top-0 rounded-t-md border-2 border-primary/20 border-b-primary/60 bg-primary/10 px-1 py-2 text-xs font-semibold text-primary/85'>
         {member.role}
@@ -97,7 +97,7 @@ const FullVariant = ({ member, avatar }: { member: Member; avatar: string }) => 
           <CardAvatar
             src={avatar}
             alt={`${member.name}'s avatar`}
-            className='aspect-square w-full'
+            className='aspect-square h-auto w-full'
           />
           {hasSocials && (
             <div className='absolute bottom-3 left-3 right-3 flex items-center justify-center'>

@@ -57,6 +57,11 @@ const originalTeam: BaseMember[] = [
       'Всем привет меня зовут Эмиль, я будущий промоутер и начинающий фронтенд-разработчик <3',
     socials: ['https://github.com/beyz1k'],
   },
+  {
+    tag: 'adelya',
+    name: 'Adelya',
+    role: 'Менеджер',description: '',
+  }
 ];
 
 const team: Member[] = originalTeam.map<Member>((p) => ({
