@@ -29,14 +29,21 @@ const CardAvatar = ({
 
   useEffect(() => {
     const img = new Image();
-    img.onload = () => {
-      setLoading(false);
-      setImageLoaded(true);
+
+    const eventListeners = {
+      load: () => (setLoading(false), setImageLoaded(true)),
+      error: () => (setLoading(false), setError(true)),
     };
 
-    img.onerror = () => (setLoading(false), setError(true));
+    img.addEventListener('load', eventListeners['load']);
+    img.addEventListener('error', eventListeners['error']);
 
     img.src = src;
+
+    return () => {
+      img.removeEventListener('load', eventListeners['load']);
+      img.removeEventListener('error', eventListeners['error']);
+    };
   }, [src]);
 
   return (
