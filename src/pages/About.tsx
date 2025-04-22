@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import TeamMemberCard from '../components/TeamMemberCard';
-import team from '../config/team';
+import team from '../config/membersSocialLinks.ts';
 
 const About = () => {
   return (

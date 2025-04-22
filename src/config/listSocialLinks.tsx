@@ -1,18 +1,21 @@
+import type { SocialLink } from '../types';
+
 import DiscordIcon from '../assets/icons/DiscordIcon';
-import GravatarIcon from '../assets/icons/GravatarIcon';
 import GitHubIcon from '../assets/icons/GitHubIcon';
+import GravatarIcon from '../assets/icons/GravatarIcon';
 import TelegramIcon from '../assets/icons/TelegramIcon';
 import WebsiteIcon from '../assets/icons/WebsiteIcon';
 import YouTubeIcon from '../assets/icons/YouTubeIcon';
-
-import { SocialLink } from '../types';
+import PinterestIcon from '../assets/icons/PinterestIcon';
 import TikTokIcon from '../assets/icons/TikTokIcon';
 import TwitchIcon from '../assets/icons/TwitchIcon';
-import PinterestIcon from '../assets/icons/PinterestIcon';
 import TwitterIcon from '../assets/icons/TwitterIcon';
 import VKIcon from '../assets/icons/VKIcon';
 
-const namedLinks: SocialLink[] = [
+/**
+ * Массив из объектов типа SocialLink. Каждый элемент содержит href (адрес сервиса), name (имя сервиса) и icon (иконка, React-компонент)
+ */
+const listSocialLinks: SocialLink[] = [
   {
     href: '(personal) ',
     name: 'Персональный сайт',
@@ -78,4 +81,4 @@ const namedLinks: SocialLink[] = [
     icon: YouTubeIcon,
   },
 ];
-export default namedLinks;
+export default listSocialLinks;

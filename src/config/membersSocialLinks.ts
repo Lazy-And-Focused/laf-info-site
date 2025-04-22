@@ -60,8 +60,9 @@ const originalTeam: BaseMember[] = [
   {
     tag: 'adelya',
     name: 'Adelya',
-    role: 'Менеджер',description: '',
-  }
+    role: 'Менеджер',
+    description: '',
+  },
 ];
 
 const team: Member[] = originalTeam.map<Member>((p) => ({

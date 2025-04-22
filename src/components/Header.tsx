@@ -43,7 +43,7 @@ const Header = () => {
           </Link>
         </div>
         <div className='mx-auto flex flex-1 justify-center gap-x-4 sm:gap-x-8 lg:gap-x-12'>
-          {routes[0].children?.map((r) => (
+          {routes[0].children?.slice(0, 3).map((r) => (
             <NavLink
               key={r.path}
               to={r.path}
