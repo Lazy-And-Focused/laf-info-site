@@ -25,7 +25,7 @@ const Links = () => {
           Список офицальных страниц команды в социальных сетях
         </p>
 
-        <ul className='mx-auto grid w-full max-w-2xl list-inside list-disc grid-cols-2 justify-start gap-3 rounded-lg bg-base-content/5 p-6 text-sm font-medium text-base-content/85'>
+        <ul className='mx-auto grid w-full max-w-2xl list-inside list-disc grid-cols-1 justify-start gap-3 rounded-lg bg-base-content/5 p-6 text-sm font-medium text-base-content/85 md:grid-cols-2'>
           {teamSocialLinks.map((s) => (
             <li
               className='list-none items-center gap-2 transition-colors hover:text-primary hover:underline'
