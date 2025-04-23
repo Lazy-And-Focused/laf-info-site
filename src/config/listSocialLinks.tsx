@@ -71,9 +71,17 @@ const listSocialLinks: SocialLink[] = [
     name: 'Steam',
   },
   {
+    href: 'https://patreon.com/',
+    name: 'Patreon',
+  },
+  {
     href: 'https://twitter.com/',
     name: 'Twitter',
     icon: TwitterIcon,
+  },
+  {
+    href: 'https://bsky.app/profile/',
+    name: 'Bluesky',
   },
   {
     href: 'https://www.youtube.com/',
