@@ -39,7 +39,7 @@ const getAvatarUrl = (member: Member, hasGitHub: boolean) => {
   if (member.avatar) {
     return member.avatar;
   } else if (hasGitHub) {
-    return `https://github.com/${member.tag}.png?size=360`;
+    return `https://github.com/${member.tag}.png?size=255`;
   }
   return '/images/avatars/default.png';
 };

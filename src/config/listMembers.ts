@@ -6,23 +6,6 @@ import { formatLinks } from '../utils';
  */
 const originalTeam: BaseMember[] = [
   {
-    tag: 'lanvalird',
-    name: 'Valentin Bird',
-    role: 'Team Lead, Frontend-разработчик',
-    description:
-      'Привет! Я интересовался программированием с 11 лет, в 13 начал изучать свой первый язык – PHP, а в данный момент занимаюсь веб-разработкой около трёх лет.\nПрограммирование для меня – не просто очередное хобби, как дизайн сайтов или писательства, а одно из моих любимых занятий, точнее веб-разработка, с которой я бы хотел связать свою дальнейшую жизнь.',
-    socials: [
-      '(personal) https://lanvalird.netlify.app/',
-      'https://github.com/lanvalird',
-      'https://gravatar.com/lanvalird',
-      'https://t.me/lanvalird',
-      'https://vk.com/lanvalird',
-      'https://pinterest.com/acula_1/',
-      'https://twitch.tv/acula_1',
-      'https://tiktok.com/@acula_1',
-    ],
-  },
-  {
     tag: 'fockusty',
     name: 'FOCKUSTY',
     role: 'CEO, Backend-разработчик',
@@ -42,10 +25,36 @@ const originalTeam: BaseMember[] = [
     ],
   },
   {
+    tag: 'adelya',
+    name: 'Adelya',
+    role: 'HR Менеджер',
+    avatar: '/images/avatars/adelya.webp',
+    description:
+      'Я — Адэля и попала в эту команду немного случайно. Являюсь менеджером данной команды, мне сказали, чтобы я заставляла работать всех ленивцев',
+    socials: ['https://t.me/Angels13a'],
+  },
+  {
+    tag: 'lanvalird',
+    name: 'Valentin Bird',
+    role: 'Team Lead, Frontend-разработчик',
+    description:
+      'Привет! Я интересовался программированием с 11 лет, в 13 начал изучать свой первый язык – PHP, а в данный момент занимаюсь веб-разработкой около трёх лет.\nПрограммирование для меня – не просто очередное хобби, как дизайн сайтов или писательства, а одно из моих любимых занятий, точнее веб-разработка, с которой я бы хотел связать свою дальнейшую жизнь.',
+    socials: [
+      '(personal) https://lanvalird.netlify.app/',
+      'https://github.com/lanvalird',
+      'https://gravatar.com/lanvalird',
+      'https://t.me/lanvalird',
+      'https://vk.com/lanvalird',
+      'https://pinterest.com/acula_1/',
+      'https://twitch.tv/acula_1',
+      'https://tiktok.com/@acula_1',
+    ],
+  },
+  {
     tag: 'omonillo',
     name: 'Омонилло',
     role: 'Промоутер',
-    avatar: '/images/avatars/omonillo.png',
+    avatar: '/images/avatars/omonillo.webp',
     description:
       'Меня зовут Азамжанов Омонилло, а с остальными разработчиками вы, скорее всего, уже познакомились.\nМы активно работаем над проектами, которые позволяют нам улучшить наши навыки и применить полученные знания на практике.',
   },
@@ -56,12 +65,6 @@ const originalTeam: BaseMember[] = [
     description:
       'Всем привет меня зовут Эмиль, я будущий промоутер и начинающий фронтенд-разработчик <3',
     socials: ['https://github.com/beyz1k'],
-  },
-  {
-    tag: 'adelya',
-    name: 'Adelya',
-    role: 'Менеджер',
-    description: '',
   },
 ];
 
