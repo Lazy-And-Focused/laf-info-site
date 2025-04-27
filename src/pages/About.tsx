@@ -24,12 +24,12 @@ const About = () => {
       >
         <ul
           role='list'
-          className='mx-auto grid w-full max-w-7xl justify-center gap-16 rounded-lg bg-base-content/5 p-4 sm:grid-cols-3 md:grid-cols-4 md:gap-16'
+          className='mx-auto grid w-full max-w-7xl grid-cols-1 justify-items-center gap-8 rounded-lg bg-base-content/5 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
         >
           {team
             .filter((person) => !person.meta?.includes('leave'))
             .map((person) => (
-              <li key={person.tag} className='flex h-full items-stretch'>
+              <li key={person.tag} className='flex h-max items-stretch'>
                 <TeamMemberCard member={person} type='full' />
               </li>
             ))}
