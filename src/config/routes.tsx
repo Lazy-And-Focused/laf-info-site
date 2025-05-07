@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-
 import type { ConfigRoute } from '../types';
 
 import { createBrowserRouter } from 'react-router-dom';

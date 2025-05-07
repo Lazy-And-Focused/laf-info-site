@@ -23,7 +23,7 @@ const Links = () => {
         <h2 className='text-3xl font-semibold tracking-tight text-base-content sm:text-4xl'>
           Lazy And Focused
         </h2>
-        <p className='my-8 text-lg text-base-content/40'>
+        <p className='my-8 text-center text-lg text-base-content/40'>
           Список официальных страниц команды в социальных сетях
         </p>
 
