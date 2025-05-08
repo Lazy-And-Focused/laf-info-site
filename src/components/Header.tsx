@@ -112,7 +112,7 @@ const MobileHeader = () => {
               to='/links'
               className={({ isActive, isPending }) =>
                 clsx(
-                  'btn btn-ghost h-8 min-h-8 text-nowrap rounded px-2 py-1 text-xs font-medium text-base-content transition-colors sm:text-sm',
+                  'btn btn-ghost min-h-8 text-nowrap rounded px-2 py-1 font-medium text-base-content transition-colors',
                   isActive && 'bg-primary/50 shadow',
                   isPending && 'animate-pulse',
                 )
