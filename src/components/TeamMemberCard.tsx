@@ -1,10 +1,14 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import ListIcon from '../assets/icons/ListIcon';
+import WebsiteIcon from '../assets/icons/WebsiteIcon';
 import { Member } from '../types';
 import CardAvatar from './CardAvatar';
-import GitHubIcon from '../assets/icons/GitHubIcon';
-import WebsiteIcon from '../assets/icons/WebsiteIcon';
-import ListIcon from '../assets/icons/ListIcon';
-const HasGitHub = createContext(false);
+
+type HasPrimarySocialsType = {
+  [key: string]: { 0: boolean; 1: string };
+} | null;
+
+const HasPrimarySocials = createContext<HasPrimarySocialsType>(null);
 
 /**
  * Компонент, возвращающий карточку участника
@@ -17,21 +21,37 @@ const TeamMemberCard = ({
   member: Member;
   type?: 'default' | 'full';
 }) => {
-  const hasGitHub =
-    member.socials.some((link) => link.href.startsWith('https://github.com/')) || false;
+  const validateSocial = useCallback(
+    (href: string) => {
+      const isExec = member.socials.some((link) => link.href.startsWith(href));
+      return isExec || false;
+    },
+    [member.socials],
+  );
 
-  const [avatarSrc, setAvatarSrc] = useState(getAvatarUrl(member, hasGitHub));
+  const hasPrimarySocials = useMemo<HasPrimarySocialsType>(
+    () => ({
+      github: [validateSocial('https://github.com/'), 'https://github.com/'],
+      telegram: [validateSocial('https://t.me/'), 'https://t.me/'],
+    }),
+    [validateSocial],
+  );
 
-  useEffect(() => setAvatarSrc(getAvatarUrl(member, hasGitHub)), [member, hasGitHub]);
+  const [avatarSrc, setAvatarSrc] = useState(getAvatarUrl(member, hasPrimarySocials!['github'][0]));
+
+  useEffect(
+    () => setAvatarSrc(getAvatarUrl(member, hasPrimarySocials!['github'][0])),
+    [member, hasPrimarySocials],
+  );
 
   return (
-    <HasGitHub.Provider value={hasGitHub}>
+    <HasPrimarySocials.Provider value={hasPrimarySocials}>
       {type === 'full' ? (
         <FullVariant member={member} avatar={avatarSrc} />
       ) : (
         <DefaultVariant member={member} avatar={avatarSrc} />
       )}
-    </HasGitHub.Provider>
+    </HasPrimarySocials.Provider>
   );
 };
 
@@ -45,7 +65,7 @@ const getAvatarUrl = (member: Member, hasGitHub: boolean) => {
 };
 
 const DefaultVariant = ({ member, avatar }: { member: Member; avatar: string }) => {
-  const hasGitHub = useContext(HasGitHub);
+  const hasPrimarySocials = useContext(HasPrimarySocials);
 
   return (
     <div className={`flex items-center gap-x-6 rounded bg-primary/15 p-2`}>
@@ -53,19 +73,28 @@ const DefaultVariant = ({ member, avatar }: { member: Member; avatar: string }) 
       <div className='mr-2 w-full text-end'>
         <h3 className='align-center flex flex-row items-center justify-end gap-x-2 text-base/7 font-semibold tracking-tight text-base-content'>
           {member.name}
-          {hasGitHub ? (
-            <a
-              href={
-                member.socials.find((link) => link.href.startsWith('https://github.com/'))?.href
-              }
-              target='_blank'
-              rel='noreferrer'
-              className='md:text-md dark:text-grenn-400 text-sm/6 font-semibold text-primary'
-              aria-label={`Ссылка на GitHub пользователя ${member.name}`}
-            >
-              <GitHubIcon width={16} height={16} />
-            </a>
-          ) : null}
+
+          {hasPrimarySocials &&
+            member.socials
+              .filter((link) =>
+                Object.values(hasPrimarySocials).some((s) => link.href.startsWith(s[1])),
+              )
+              .map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label={`Ссылка на ${s.name} пользователя ${member.name}`}
+                  className='md:text-md dark:text-grenn-400 text-sm/6 font-semibold text-primary'
+                >
+                  {s.icon ? (
+                    <s.icon width={16} height={16} />
+                  ) : (
+                    <WebsiteIcon width={16} height={16} />
+                  )}
+                </a>
+              ))}
         </h3>
         <p className='text-sm/6 font-semibold text-primary/75'>{member.role}</p>
       </div>
